@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteBase /TheSentinels/
+
+RewriteCond %{REQUEST_URI} !index.php$
+RewriteRule ^articles/([A-Za-z0-9-]+) /articles/index.php?slug=$1%{QUERY_STRING} [PT,L]
+
+ErrorDocument 404 /TheSentinels/hmm.php
