@@ -13,6 +13,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <!--<script type="text/javascript" src="/TheSentinels/scripts/jquery-1.9.1.min.js"></script>-->
     <script type="text/javascript" src="/TheSentinels/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://cdn.sendori.com/js/inlinekeywords.js"></script>

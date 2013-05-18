@@ -30,9 +30,8 @@
                                      <link rel="shortcut icon" href="assets/ico/favicon.png">
 
     <!--le functions-->
-    <?php include("/TheSentinels/scripts/functions.php"); ?>
+    <!--Removed for debugging-->
   </head>
-
   <body>
     <!--Le Header-->
       <div class="navbar navbar-inverse navbar-fixed-top">
@@ -83,8 +82,8 @@
                         <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Sign In<strong class='caret'></strong></a></li>
                         <div class='dropdown-menu' style='Padding: 15px; Padding-0ottom: 0 px'>
                         <form action='' method='POST' accept-charset='UTF-8'>
-                          <input id='user_username' style='margin-bottom: 15px;' type='text' name='user[username]' size='30' placeholder='User'/>
-                          <input id='user_password' style='margin-bottom: 15px;' type='password' name='user[password]' size='30' placeholder='Password'/>
+                          <input id='user_username' style='margin-bottom: 15px;' type='text' name='username' size='30' placeholder='User'/>
+                          <input id='user_password' style='margin-bottom: 15px;' type='password' name='password' size='30' placeholder='Password'/>
                           <input id='user_remember_me' style='float: left; margin-right: 10px;' type='checkbox' name='user[remember_me]' value='1' />
                           <label class='string optional' for='user_remember_me'> Remember me</label>
                           <input class='btn btn-primary btn-inverse' style='clear: left; width: 100%; height: 32px; font-size: 13px;' type='submit' name='commit' value='Sign In' />
@@ -115,7 +114,7 @@
                     foreach($errors as $key => $value) /* walk through the array so all the errors get displayed */ 
                       {echo '<li>' . $value . '</li>';/* this generates a nice error list */} 
                     echo '</ul>'; 
-                  }else{ 
+                  }else if(isset($_POST['username'])){
                     //the form has been posted without errors, so save it 
                     //notice the use of mysql_real_escape_string, keep everything safe! 
                     //also notice the sha1 function which hashes the password 
@@ -135,7 +134,7 @@
                         //set the $_SESSION['signed_in'] variable to TRUE 
                         $_SESSION['signed_in'] = true; 
                         //we also put the user_id and user_name values in the $_SESSION, so we can use it at various pages 
-                        while($row = mysql_fetch_assoc($result)){ 
+                        while($row = mysql_fetch_assoc($result)){
                             $_SESSION['user_id']    = $row['user_id']; 
                             $_SESSION['user_name']  = $row['user_name']; 
                             $_SESSION['user_level'] = $row['user_level']; 
@@ -143,7 +142,7 @@
                           //Refresh the page with user signed in
                           echo "<script>location.reload();</script> ";
                       } 
-                    } 
+                    }
                   }  
                 }?>
               </ul>
